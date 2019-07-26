@@ -48,60 +48,60 @@
 特征工程：
 一 基础画像:用户画像、店铺画像、广告商品画像
 主要提取它们的统计特征、时间特征(主要是时间差)
-用户画像
-    统计特征
-    常规统计
-    用户基本属性：性别、年龄
-    用户点击次数
-    用户购买次数
-    用户对商品的忠诚度：每件商品平均购买次数
-    用户对店铺忠诚度：每家店铺平均购买次数
-    用户购买次数最多的店铺
-    用户购买次数最多的商品类目2
-    用户购买平均价格水平
-    用户购买的店铺的平均星级
-    暴力统计法
-    选合理的多个特征并遍历
- ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,“shop_ip”,”shop_review_num_level”,”shop_review_positive”,”shop_star_level”,”shop_score_service”,”shop_score_delivery”,”shop_score_description”])
-    对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
-    求count,nunique特征
-    时间特征
-    用户每天、每小时、每分钟的点击次数
-    用户浏览商品的时间间隔
-    用户购买商品的时间间隔
-    用户购买同一商品的时间间隔
-    用户转化率
-    ......
+     用户画像
+         统计特征
+         常规统计
+         用户基本属性：性别、年龄
+         用户点击次数
+         用户购买次数
+         用户对商品的忠诚度：每件商品平均购买次数
+         用户对店铺忠诚度：每家店铺平均购买次数
+         用户购买次数最多的店铺
+         用户购买次数最多的商品类目2
+         用户购买平均价格水平
+         用户购买的店铺的平均星级
+         暴力统计法
+         选合理的多个特征并遍历
+      ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,“shop_ip”,”shop_review_num_level”,”shop_review_positive”,”shop_star_level”,”shop_score_service”,”shop_score_delivery”,”shop_score_description”])
+         对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
+         求count,nunique特征
+         时间特征
+         用户每天、每小时、每分钟的点击次数
+         用户浏览商品的时间间隔
+         用户购买商品的时间间隔
+         用户购买同一商品的时间间隔
+         用户转化率
+         ......
 
-店铺画像
-    常规统计
-    店铺基本属性
-    ......
-    暴力统计法
-    选合理的多个特征并遍历
-    ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,”user_id”,”user_gender_id”,”user_age_level”,”user_occupation_id”,”user_star_id”])
-    对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
-    求count,nunique特征
-    时间特征
-    ......
-广告商品画像
-    广告商品的基本属性
-    常规统计+暴力统计+时间特征
+     店铺画像
+         常规统计
+         店铺基本属性
+         ......
+         暴力统计法
+         选合理的多个特征并遍历
+         ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,”user_id”,”user_gender_id”,”user_age_level”,”user_occupation_id”,”user_star_id”])
+         对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
+         求count,nunique特征
+         时间特征
+         ......
+     广告商品画像
+         广告商品的基本属性
+         常规统计+暴力统计+时间特征
 
 二 组合画像：用户-店铺、用户-商品、店铺-用户、店铺-商品、商品-用户、商品-店铺
 
-用户-店铺
-    统计特征
-    每个用户对每家店铺的点击次数
-    每个用户对每家店铺的购买次数
-    每个用户在每家店铺的购买商品的平均价格
-    ......
-    时间特征
-    用户在每个店铺每天、每小时、每分钟的点击次数
-    用户在每个店铺浏览商品的时间间隔
-    用户在每个店铺购买商品的时间间隔
-    用户在每个店铺购买同一商品的时间间隔
-    ......
+     用户-店铺
+         统计特征
+         每个用户对每家店铺的点击次数
+         每个用户对每家店铺的购买次数
+         每个用户在每家店铺的购买商品的平均价格
+         ......
+         时间特征
+         用户在每个店铺每天、每小时、每分钟的点击次数
+         用户在每个店铺浏览商品的时间间隔
+         用户在每个店铺购买商品的时间间隔
+         用户在每个店铺购买同一商品的时间间隔
+         ......
 
 三 其他组合
 
