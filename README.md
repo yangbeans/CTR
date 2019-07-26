@@ -7,8 +7,8 @@
 
 1 【数据情况】
 
-2 【项目目的】
-    通过以往的投放广告点击相关的信息【广告的id、广告是谁投的(广告商家信息)、投了什么广告(广告商品信息)、这条广告投在哪里(上下文信息)、是否购买了。】，预测假如所有新的广告投给目标用户(平台上有历史记录的用户)后(假设他点击了)时产生的购买概率，只找出购买概率高的那些广告。
+2 【项目目的】 
+     通过以往的投放广告点击相关的信息【广告的id、广告是谁投的(广告商家信息)、投了什么广告(广告商品信息)、这条广告投在哪里(上下文信息)、是否购买了。】，预测假如所有新的广告投给目标用户(平台上有历史记录的用户)后(假设他点击了)时产生的购买概率，只找出购买概率高的那些广告。
 (做的还是对老客户的价值挖掘，当新的预测数据输入时要利用以往(训练集)尽可能多的有用信息(比如用户画像、广告画像、店铺画像)当预测的特征，引入特征的前提要保证数据分布的一致性)
 
 3 【项目整体实现思路】
@@ -19,9 +19,9 @@
     2 满足训练集的数据分布情况与测试集一致。
 <2> 删除冗余的特征：手动删除+递归消除
 
-    滑窗合理增加训练集
+   滑窗合理增加训练集
 
-    广告转化率的业务逻辑
+   广告转化率的业务逻辑
 
 
 4 【细节】：数据分析、特征工程、特征处理、用的算法等
@@ -31,17 +31,14 @@
         测试集样本数、
         正负样本情况、
         重要id情况(user_id、店铺id、商品id数)
-
     占比分布：
         商品出现次数分布占比
         店铺出现次数分布占比
         用户出现次数分布占比
-
     研究对象不同维度详细信息
         用户不同维度详细信息可视化
         店铺不同维度详细信息可视化
         广告商品不同维度详细信息可视化
-
     其他与标签值相关的数据分析与可视化(用于特征选择等重要参考)
 
 
@@ -60,13 +57,11 @@
     用户购买次数最多的商品类目2
     用户购买平均价格水平
     用户购买的店铺的平均星级
-
     暴力统计法
     选合理的多个特征并遍历
-    ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,“shop_ip”,”shop_review_num_level”,”shop_review_positive”,”shop_star_level”,”shop_score_service”,”shop_score_delivery”,”shop_score_description”])
+ ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,“shop_ip”,”shop_review_num_level”,”shop_review_positive”,”shop_star_level”,”shop_score_service”,”shop_score_delivery”,”shop_score_description”])
     对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
     求count,nunique特征
-
     时间特征
     用户每天、每小时、每分钟的点击次数
     用户浏览商品的时间间隔
@@ -79,15 +74,12 @@
     常规统计
     店铺基本属性
     ......
-
     暴力统计法
     选合理的多个特征并遍历
     ([“is_trade”,”item_id”,”item_category_list”,”item_brand_id”,”item_city_id”,”item_price_level”,”item_sales_level”,”item_collected_level”,”item_pv_level”,”user_id”,”user_gender_id”,”user_age_level”,”user_occupation_id”,”user_star_id”])
     对于联系型特征，求count,nunique,max,min,sum,mean,std特征；对于离散特征，
     求count,nunique特征
-
     时间特征
-
     ......
 广告商品画像
     广告商品的基本属性
@@ -100,14 +92,12 @@
     每个用户对每家店铺的购买次数
     每个用户在每家店铺的购买商品的平均价格
     ......
-
     时间特征
     用户在每个店铺每天、每小时、每分钟的点击次数
     用户在每个店铺浏览商品的时间间隔
     用户在每个店铺购买商品的时间间隔
     用户在每个店铺购买同一商品的时间间隔
     ......
-
 
 三 其他组合
     不同好评率对应的销量情况
@@ -124,17 +114,15 @@
     ......
 
 特征处理
+    样本出现数据倾斜、做数据倾斜的几种处理、发现效果没有那么好，直接采取不处理~
     对于每一个生成的画像做相应的特征处理。
     贝叶斯平滑处理：对转化率做贝叶斯平滑
     log处理：对长尾分布做log
 
-
 【特征选择】  features_select.py
     用递归消除做特征选择
-
 
 【模型】   model.py
     单模型：xgboost
     调参：交叉验证
-    
     *时间问题，可以再做模型融合提高分数，用stacking!!!
