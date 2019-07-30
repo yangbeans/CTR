@@ -4,7 +4,7 @@
      MY_EDA.ipynb：数据分析的notebook
      egg.py:特征工程和特征选择的代码，包括用户画像类、组合画像类、贝叶斯平滑类等类编程文件
      func_lib.py：本项目中用到的自定义函数库集合
-     para_adjust.py：模型调参代处
+     args_adjust.py：模型调参代处
 
 
 【目录】
